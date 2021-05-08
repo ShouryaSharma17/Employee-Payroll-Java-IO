@@ -2,6 +2,7 @@ package com.payroll;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.IOException;
 
 
 public class EmployeePayrollService {
@@ -10,17 +11,19 @@ public class EmployeePayrollService {
     }
     private List<EmployeePayrollData> employeePayrollList;
 
-    //Creating Constructor
+
+    // Creating constructor
+
     public EmployeePayrollService() {
     }
 
-    //parameterized constructor for initializing list
+    // Parameterized constructor for initializing list
 
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) {
         this.employeePayrollList = employeePayrollList;
     }
 
-    // Read from console
+    // Read from the console
 
     private void readEmployeePayrollData(Scanner consoleInputReader) {
         System.out.println("Please enter employee name");
@@ -33,20 +36,27 @@ public class EmployeePayrollService {
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
-    // Write into console
+    // Write into the console
 
     private void writeEmployeePayrollData() {
         System.out.println("\n Writing Employee Payroll Roster to Console\n" + employeePayrollList);
     }
 
-    //Main method
-    public static void main(String[] args) {
+    // Main method
+
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Employee Payroll service program!");
         ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<EmployeePayrollData>();
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
         Scanner consoleInputReader = new Scanner(System.in);
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
         employeePayrollService.writeEmployeePayrollData();
+
+        //UC2:-Check File Exists, Delete File and Check File Not Exist, Create Directory,
+        //Create Empty File, List Files, Directories as well as Files with Extension.
+
+        FileOperations fileOperations = new FileOperations();
+        fileOperations.fileOperationDemonstrator();
     }
 }
 
