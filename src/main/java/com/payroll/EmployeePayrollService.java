@@ -58,5 +58,17 @@ public class EmployeePayrollService {
         FileOperations fileOperations = new FileOperations();
         fileOperations.fileOperationDemonstrator();
     }
+    // Count Entries
+    public long countEntries(IOService ioService) {
+        if(ioService.equals(IOService.FILE_IO));
+        return new EmployeePayrollFileIOService().countEntries();
+    }
+
+    // Prints data into the file
+
+    public void printData(IOService ioService) {
+        if(ioService.equals(IOService.FILE_IO));
+        new EmployeePayrollFileIOService().printData();
+    }
 }
 
