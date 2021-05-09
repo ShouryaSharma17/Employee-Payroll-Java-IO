@@ -63,6 +63,11 @@ public class EmployeePayrollService {
         if(ioService.equals(IOService.FILE_IO));
         return new EmployeePayrollFileIOService().countEntries();
     }
+    // Prints entries
+    public List<EmployeePayrollData> printEntries(IOService ioService){
+        if(ioService.equals(IOService.FILE_IO));
+        return new EmployeePayrollFileIOService().readData();
+    }
 
     // Prints data into the file
 
